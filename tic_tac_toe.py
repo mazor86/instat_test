@@ -19,6 +19,7 @@ class BoardState:
         board_line = [item for row in self.board for item in row]
         if all(' ' == item for item in board_line):
             print('The game board is empty')
+            return
         wins = [
             [1, 2, 3], [4, 5, 6], [7, 8, 9],
             [1, 4, 7], [2, 5, 8], [3, 6, 9],
@@ -28,3 +29,5 @@ class BoardState:
             for row in wins:
                 if all(cur_player == board_line[item - 1] for item in row):
                     print(f'{cur_player} won')
+                    return
+        print('The game is on')
